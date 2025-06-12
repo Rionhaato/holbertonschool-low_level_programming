@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# compile $CFILE to an object file without linking
+gcc -c "$CFILE" -o "${CFILE%.c}.o"
