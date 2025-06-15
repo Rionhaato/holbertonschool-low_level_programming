@@ -1,6 +1,4 @@
-cat > 4-isalpha.c << 'EOF'
 #include "main.h"
-
 /**
  * _isalpha - checks for alphabetic character
  * @c: the character to be checked
@@ -13,4 +11,3 @@ int _isalpha(int c)
 		return (1);
 	return (0);
 }
-EOF
