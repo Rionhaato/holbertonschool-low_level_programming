@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+* main - prints all hexadecimal digits in lowercase
+*
+* Return: Always 0 (Success)
+*/
 int main(void)
 {
 int i;
@@ -16,5 +21,6 @@ putchar('a' + (i - 10));
 }
 putchar('\n');
 }
+
 return (0);
 }
