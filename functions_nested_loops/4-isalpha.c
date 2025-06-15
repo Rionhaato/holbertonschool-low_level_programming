@@ -1,3 +1,4 @@
+cat > 4-isalpha.c << 'EOF'
 #include "main.h"
 
 /**
@@ -12,3 +13,4 @@ int _isalpha(int c)
 		return (1);
 	return (0);
 }
+EOF
