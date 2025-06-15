@@ -1,31 +1,28 @@
 #include <stdio.h>
-
+#include <unistd.h>
 /**
- * main - prints all possible different combinations of two digits
+ * main - Entry point
+ *
+ * Description: Prints all possible combinations of single-digit numbers
+ * Numbers must be separated by comma followed by a space
+ * Numbers should be printed in ascending order
+ * Uses exactly 4 putchar function calls in the code (not execution)
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i, j;
+	int i;
 
-	i = 0;
-	while (i <= 8)
+	for (i = 0; i <= 9; i++)
 	{
-		j = i + 1;
-		while (j <= 9)
+		putchar(i + 48);
+		if (i != 9)
 		{
-			putchar('0' + i);
-			putchar('0' + j);
-			if (!(i == 8 && j == 9))
-			{
-				putchar(',');
-				putchar(' ');
-			}
-			j++;
+			putchar(44);
+			putchar(32);
 		}
-		i++;
 	}
-	putchar('\n');
+	putchar(10);
 	return (0);
 }
