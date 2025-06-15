@@ -13,6 +13,6 @@ for (i = 25; i >= 0; i--)
 {
 putchar('a' + i);
 }
-putchar('n');
+putchar('\n');
 return (0);
 }
