@@ -8,27 +8,24 @@
  */
 char *cap_string(char *s)
 {
-	int i = 0, cap_next = 1;
+	int i = 0;
+	char separators[] = " \t\n,;.!?\"(){}-";
+	int j;
+
+	if (s[i] >= 'a' && s[i] <= 'z')
+		s[i] -= 32;
 
 	while (s[i] != '\0')
 	{
-		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' ||
-		s[i] == ',' || s[i] == ';' || s[i] == '.' ||
-		s[i] == '!' || s[i] == '?' || s[i] == '"' ||
-		s[i] == '(' || s[i] == ')' || s[i] == '{' || s[i] == '}')
+		for (j = 0; separators[j] != '\0'; j++)
 		{
-			cap_next = 1;
+			if (s[i] == separators[j])
+			{
+				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+					s[i + 1] -= 32;
+				break;
+			}
 		}
-		else if (cap_next && s[i] <= 'z')
-		{
-			s[i] -= 32;
-			cap_next = 0;
-		}
-		else
-		{
-			cap_next = 0;
-		}
-
 		i++;
 	}
 
