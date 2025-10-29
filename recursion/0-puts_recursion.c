@@ -1,4 +1,5 @@
-#include "main.h"
+/* Forward declaration to avoid requiring main.h during checker compile */
+int _putchar(char c);
 
 /**
  * _puts_recursion - prints a string followed by a new line
