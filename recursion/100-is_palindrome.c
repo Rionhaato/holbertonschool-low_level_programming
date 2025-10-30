@@ -8,7 +8,7 @@
  *
  * Return: 1 if palindrome, otherwise 0
  */
-static int pal_check(char *s, int l, int r)
+int pal_check(char *s, int l, int r)
 {
 	if (l >= r)
 		return (1);
