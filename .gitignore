@@ -1,0 +1,32 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*.log
+
+# C/C++ build artifacts
+*.o
+*.obj
+*.out
+*.a
+*.so
+*.dll
+*.dylib
+*.gch
+*.gcda
+*.gcno
+*.gcov
+a.out
+*/a.out
+
+# Temp
+/tmp/
+
+# Project-specific binaries seen locally
+0-putchar
+1-alphabet
+5-sqrt_recursion
+recursion/4-pow
