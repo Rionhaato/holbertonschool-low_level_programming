@@ -15,6 +15,8 @@ Small C programs practicing command-line arguments (argc, argv).
 - 2-args.c - prints all arguments, including the program name, one per line.
 - 3-mul.c - multiplies two integers passed as arguments; prints Error and
   returns 1 if exactly two args are not provided.
+- 4-add.c - adds positive integer arguments; if any arg is non-digit prints
+  Error and returns 1; prints 0 when no args.
 
 ## Build
 Examples:
@@ -23,6 +25,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 0-whatsmyname.c -o mynameis
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 1-args.c -o nargs
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 2-args.c -o args
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 3-mul.c -o mul
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 4-add.c -o add
 ```
 
 ## Usage
@@ -52,6 +55,14 @@ mv mynameis mynewnameis
 # -> 6
 ./mul
 # -> Error (exit status 1)
+
+# 4-add.c
+./add 1 10 100
+# -> 111
+./add 1 2 3 e 4
+# -> Error (exit status 1)
+./add
+# -> 0
 ```
 
 ## Notes
@@ -79,3 +90,10 @@ mv mynameis mynewnameis
   - Print the result followed by a new line.
   - You can assume the two numbers and the result fit in an int.
   - If the program does not receive two arguments, print "Error" and return 1.
+ 
+- 4. To infinity and beyond
+  - Write a program that adds positive numbers.
+  - Print the result followed by a new line.
+  - If no number is passed, print 0 followed by a new line.
+  - If any argument contains non-digit symbols, print "Error" and return 1.
+  - You can assume numbers and their sum fit in an int.
