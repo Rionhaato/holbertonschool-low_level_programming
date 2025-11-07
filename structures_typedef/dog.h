@@ -1,5 +1,5 @@
-#ifndef DOG_H
-#define DOG_H
+#ifndef STRUCTURES_TYPEDEF_DOG_H
+#define STRUCTURES_TYPEDEF_DOG_H
 
 /*
  * File: dog.h
@@ -24,4 +24,13 @@ struct dog
  */
 typedef struct dog dog_t;
 
-#endif /* DOG_H */
+/*
+ * init_dog - Initialize a struct dog variable.
+ * @d: Pointer to struct dog to initialize
+ * @name: Dog's name
+ * @age: Dog's age
+ * @owner: Dog's owner
+ */
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
+#endif /* STRUCTURES_TYPEDEF_DOG_H */
