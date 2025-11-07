@@ -33,4 +33,10 @@ typedef struct dog dog_t;
  */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
+/*
+ * print_dog - Print the contents of a struct dog.
+ * @d: Pointer to struct dog to print
+ */
+void print_dog(struct dog *d);
+
 #endif /* STRUCTURES_TYPEDEF_DOG_H */
