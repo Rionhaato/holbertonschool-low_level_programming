@@ -39,4 +39,14 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
  */
 void print_dog(struct dog *d);
 
+/*
+ * new_dog - Create a new dog instance with copied strings.
+ * @name: dog's name
+ * @age: dog's age
+ * @owner: dog's owner
+ *
+ * Return: pointer to new dog_t, or NULL on failure
+ */
+dog_t *new_dog(char *name, float age, char *owner);
+
 #endif /* STRUCTURES_TYPEDEF_DOG_H */
