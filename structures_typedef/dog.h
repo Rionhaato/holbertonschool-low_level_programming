@@ -49,4 +49,10 @@ void print_dog(struct dog *d);
  */
 dog_t *new_dog(char *name, float age, char *owner);
 
+/*
+ * free_dog - Free a dog instance and its strings.
+ * @d: pointer to dog_t to free
+ */
+void free_dog(dog_t *d);
+
 #endif /* STRUCTURES_TYPEDEF_DOG_H */
