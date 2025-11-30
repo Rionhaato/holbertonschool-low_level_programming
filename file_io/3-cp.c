@@ -80,8 +80,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	rd = read(from, buffer, 1024);
-	while (rd > 0)
+	while ((rd = read(from, buffer, 1024)) > 0)
 	{
 		wr = write(to, buffer, rd);
 		if (wr == -1 || wr != rd)
@@ -92,8 +91,6 @@ int main(int argc, char *argv[])
 			close_file(to);
 			exit(99);
 		}
-
-		rd = read(from, buffer, 1024);
 	}
 
 	if (rd == -1)
