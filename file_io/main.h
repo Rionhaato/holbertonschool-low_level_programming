@@ -1,11 +1,11 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 /**
  * File: main.h
  * Auth: Joshua
  * Desc: Header file containing prototypes for file I/O tasks.
  */
-
-#ifndef MAIN_H
-#define MAIN_H
 
 #include <sys/types.h>
 #include <sys/stat.h>

@@ -80,17 +80,9 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	do {
-		rd = read(from, buffer, 1024);
-		if (rd == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
-			close_file(from);
-			close_file(to);
-			exit(98);
-		}
-
+	rd = read(from, buffer, 1024);
+	while (rd > 0)
+	{
 		wr = write(to, buffer, rd);
 		if (wr == -1 || wr != rd)
 		{
@@ -100,7 +92,18 @@ int main(int argc, char *argv[])
 			close_file(to);
 			exit(99);
 		}
-	} while (rd > 0);
+
+		rd = read(from, buffer, 1024);
+	}
+
+	if (rd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		free(buffer);
+		close_file(from);
+		close_file(to);
+		exit(98);
+	}
 
 	free(buffer);
 	close_file(from);
