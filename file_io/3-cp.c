@@ -10,6 +10,8 @@
 void copy_file(const char *from, const char *to);
 void exit_read_error(const char *file, char *buffer, int from, int to);
 void exit_write_error(const char *file, char *buffer, int from, int to);
+char *create_buffer(char *file);
+void close_file(int fd);
 
 /**
  * exit_read_error - print read error and exit.
