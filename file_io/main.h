@@ -1,11 +1,11 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 /*
  * File: main.h
  * Auth: Joshua
  * Desc: Prototypes for basic file I/O utilities.
  */
-
-#ifndef MAIN_H
-#define MAIN_H
 
 #include <sys/types.h>
 #include <sys/stat.h>
