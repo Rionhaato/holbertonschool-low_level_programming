@@ -5,7 +5,13 @@
 
 #include "hash_tables.h"
 
-/* Internal helper to create a new hash node with duplicated key/value. */
+/**
+ * hash_node_create - Creates a new hash node with duplicated key/value.
+ * @key: Key string.
+ * @value: Value string.
+ *
+ * Return: Pointer to new node, or NULL on failure.
+ */
 static hash_node_t *hash_node_create(const char *key, const char *value)
 {
 	hash_node_t *node;
