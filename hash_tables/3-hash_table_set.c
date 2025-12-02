@@ -5,6 +5,39 @@
 
 #include "hash_tables.h"
 
+/* Internal helper to create a new hash node with duplicated key/value. */
+static hash_node_t *hash_node_create(const char *key, const char *value)
+{
+	hash_node_t *node;
+	char *k;
+	char *v;
+
+	node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+		return (NULL);
+
+	k = strdup(key);
+	if (k == NULL)
+	{
+		free(node);
+		return (NULL);
+	}
+
+	v = strdup(value);
+	if (v == NULL)
+	{
+		free(k);
+		free(node);
+		return (NULL);
+	}
+
+	node->key = k;
+	node->value = v;
+	node->next = NULL;
+
+	return (node);
+}
+
 /**
  * hash_table_set - Adds or updates an element in a hash table.
  * @ht: Hash table.
@@ -25,14 +58,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((const unsigned char *)key, ht->size);
 	node = ht->array[idx];
 
-	value_cp = strdup(value);
-	if (value_cp == NULL)
-		return (0);
-
 	while (node)
 	{
 		if (strcmp(node->key, key) == 0)
 		{
+			value_cp = strdup(value);
+			if (value_cp == NULL)
+				return (0);
 			free(node->value);
 			node->value = value_cp;
 			return (1);
@@ -40,22 +72,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		node = node->next;
 	}
 
-	node = malloc(sizeof(hash_node_t));
+	node = hash_node_create(key, value);
 	if (node == NULL)
-	{
-		free(value_cp);
 		return (0);
-	}
 
-	node->key = strdup(key);
-	if (node->key == NULL)
-	{
-		free(value_cp);
-		free(node);
-		return (0);
-	}
-
-	node->value = value_cp;
 	node->next = ht->array[idx];
 	ht->array[idx] = node;
 
